@@ -35,6 +35,7 @@ const Home: NextPage = () => {
             botName="RtaoTestTelegramBot"
             dataOnauth={(user: TelegramUser) => console.log(user)}
           />
+          <a href="tg://resolve?domain=YetAnotherRoshamBot"> PLAY </a>
           <main>
             <ConnectButton />
           </main>
