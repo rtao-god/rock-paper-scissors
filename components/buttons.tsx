@@ -3,7 +3,7 @@ import TelegramLoginButton, { TelegramUser } from 'telegram-login-button'
 
 export default function Buttons() {
 
-  const [buttonArr, setButtonArr] = useState({ telegram: false, wallet: false })
+  const [buttonArr, setButtonArr] = useState({ telegram: true, wallet: false })
 
   const Telegram = () => {
     return <TelegramLoginButton
@@ -12,17 +12,17 @@ export default function Buttons() {
     />
   }
 
-  function buttonBool() {
+/*   function buttonBool() {
     setButtonArr({ telegram: true })
 
-  }
+  } */
 
   return (
     <div>
       {buttonArr.telegram &&
         <Telegram />
       }
-      <button onClick={() => buttonBool()}> true </button>
+      {/* <button onClick={() => buttonBool()}> true </button> */}
     </div>
   )
 }
