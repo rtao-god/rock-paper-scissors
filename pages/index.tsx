@@ -32,7 +32,7 @@ const Home: NextPage = () => {
           </button> */}
           {/* <Button /> */}
           <TelegramLoginButton
-            botName="RtaoTelegramBot"
+            botName="RtaoTestTelegramBot"
             dataOnauth={(user: TelegramUser) => console.log(user)}
           />
           <main>
