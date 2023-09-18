@@ -11,7 +11,7 @@ export default function Buttons() {
                 <a className={styles.aTegTelegramButton} href='#'>
                     <TelegramLoginButton
                         botName="RtaoTestTelegramBot"
-                        dataOnauth={(user: TelegramUser) => console.log(user)}
+                        dataOnauth={(user: TelegramUser) => user ? console.log("ttt") : console.log("no")}
                         buttonSize="small"
                         className={styles.telegramLoginButton}
                         style={{ display: "none" }}
@@ -24,20 +24,17 @@ export default function Buttons() {
     useEffect(() => {
         setTimeout(() => {
             const iframe: HTMLElement | null = document.querySelector("iframe")
-            const buttonTelegram: HTMLElement | null = document.querySelector(".btn")
             if (iframe) {
                 iframe.removeAttribute('style')
                 iframe.setAttribute("width", "200px")
                 iframe.setAttribute("height", "200px")
-            }
-            if (buttonTelegram) {
-                buttonTelegram.setAttribute("fontSize", "200px")
             }
         }, 1000)
     }, [])
 
     const handleSuccessfulLogin = (user: TelegramUser) => {
         console.log(user)
+        user ? console.log("yes") : console.log("no")
     }
 
     return (
@@ -45,7 +42,7 @@ export default function Buttons() {
             {buttonArr.telegram &&
                 <Telegram />
             }
-            {/* <button onClick={() => buttonBool()}> true </button> */}
+            <button onClick={() => handleSuccessfulLogin}> true </button>
         </div>
     )
 }
