@@ -3,8 +3,6 @@ import TelegramLoginButton, { TelegramUser } from 'telegram-login-button'
 import styles from './telegramButton.module.css'
 
 export default function Buttons() {
-    // const telegramLoginButtonRef = useRef()
-
     const [buttonArr, setButtonArr] = useState({ telegram: true, wallet: false })
 
     const Telegram = () => {
@@ -17,9 +15,6 @@ export default function Buttons() {
                         usePic={true}
                         cornerRadius={0}
                         buttonSize="small"
-                        label="lol"
-                        text="ljjg"
-                        caption="dsfs"
                         className={styles.telegramLoginButton}
                         style={{ display: "block" }}
                     />
@@ -35,7 +30,7 @@ export default function Buttons() {
                 iframe.removeAttribute('style')
                 console.log(iframe)
             }
-        }, 1000)
+        }, 100)
     }, [])
 
     const handleSuccessfulLogin = (user: TelegramUser) => {
