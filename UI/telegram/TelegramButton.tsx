@@ -12,15 +12,16 @@ export default function Buttons() {
         return (
             <div>
                 <a href='#'>
-                    <img src={telegramButton.src} alt="" />
                     <TelegramLoginButton
                         botName="RtaoTestTelegramBot"
                         dataOnauth={(user: TelegramUser) => console.log(user)}
+                        usePic="true"
+                        cornerRadius="50%"
+                        buttonSize="small"
                         className={styles.telegramLoginButton}
-                        label="lol"
                         refs={telegramLoginButtonRef}
-                        title="lolol"
                     />
+                    <img src={telegramButton.src} alt="" />
                 </a>
             </div>
         )

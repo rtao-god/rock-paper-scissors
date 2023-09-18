@@ -116,8 +116,8 @@ code {
   text-transform: uppercase;
 }
 
-iframe html body {
- 
+iframe {
+  color: red;
 }
 
 .playButton img:hover {
