@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import TelegramLoginButton, { TelegramUser } from 'telegram-login-button'
 import styles from './telegramButton.module.css'
 
@@ -11,12 +11,10 @@ export default function Buttons() {
                 <a className={styles.aTegTelegramButton} href='#'>
                     <TelegramLoginButton
                         botName="RtaoTestTelegramBot"
-                        dataOnauth={(user: TelegramUser) => console.log(user.hash)}
-                        usePic={true}
-                        cornerRadius={5000}
+                        dataOnauth={(user: TelegramUser) => console.log(user)}
                         buttonSize="small"
                         className={styles.telegramLoginButton}
-                        style={{ display: "block" }}
+                        style={{ display: "none" }}
                     />
                 </a>
             </div>
@@ -26,11 +24,16 @@ export default function Buttons() {
     useEffect(() => {
         setTimeout(() => {
             const iframe: HTMLElement | null = document.querySelector("iframe")
+            const buttonTelegram: HTMLElement | null = document.querySelector(".btn")
             if (iframe) {
                 iframe.removeAttribute('style')
-                console.log(iframe)
+                iframe.setAttribute("width", "200px")
+                iframe.setAttribute("height", "200px")
             }
-        }, 100)
+            if (buttonTelegram) {
+                buttonTelegram.setAttribute("fontSize", "200px")
+            }
+        }, 1000)
     }, [])
 
     const handleSuccessfulLogin = (user: TelegramUser) => {
@@ -42,7 +45,6 @@ export default function Buttons() {
             {buttonArr.telegram &&
                 <Telegram />
             }
-            <div style={{width: "100px", height: "100px", borderRadius: "1009px", background: "red"}}>lol</div>
             {/* <button onClick={() => buttonBool()}> true </button> */}
         </div>
     )
