@@ -1,11 +1,11 @@
-.aTegTelegramButton {
+/* .aTegTelegramButton {
     background-size: cover;
     width: 100px;
     height: 100px;
     display: block;
     background-image: url("../../pages//screenshots/1920-1680px/telegram.png");
 }
-
+ */
 .aTegTelegramButton:hover {
     border: 2px solid #fadd98;
     border-radius: 50%;

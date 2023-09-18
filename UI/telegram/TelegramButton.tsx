@@ -19,7 +19,7 @@ export default function Buttons() {
                         cornerRadius={0}
                         buttonSize="small"
                         className={styles.telegramLoginButton}
-                        refs={telegramLoginButtonRef}
+                        ref={telegramLoginButtonRef}
                     />
                     {/* <img src={telegramButton.src} alt="" /> */}
                 </a>
@@ -29,8 +29,9 @@ export default function Buttons() {
 
     useEffect(() => {
         setTimeout(() => {
-            const telegramButton = document.querySelector("iframe").removeAttribute('style')
-            console.log(telegramButton)
+            if (document.querySelector("iframe") !== null) {
+                document.querySelector("iframe").removeAttribute('style')
+            }
         }, 1000)
     }, [])
 
