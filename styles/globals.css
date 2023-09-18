@@ -116,14 +116,23 @@ code {
   text-transform: uppercase;
 }
 
-#telegram-login-RtaoTestTelegramBot {
+#telegram-login-RtaoTestTelegramBot iframe {
+  background-color: rgb(154, 249, 2);
+  color-scheme: dark;
+}
+
+#telegram-login-RtaoTestTelegramBot .tgme_widget_login {
+  background-color: rgb(244, 2, 2);
+  color-scheme: dark;
+}
+
+#telegram-login-RtaoTestTelegramBot div {
   background-color: black;
   color-scheme: dark;
 }
 
-#telegram-login-RtaoTestTelegramBot {
-  background-color: black;
-  color-scheme: dark;
+#telegram-login-RtaoTestTelegramBot .tgme_widget_login_button {
+  background: rgb(255, 0, 221);
 }
 
 .playButton {
