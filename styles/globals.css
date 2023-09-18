@@ -37,7 +37,7 @@ code {
 
 @media screen and (max-width: 1179px) {
   .App-header {
-    background-position: top !important; 
+    background-position: top !important;
     background-image: url("../pages/screenshots/1179-640px/background.png");
   }
 }
@@ -69,6 +69,22 @@ code {
   }
 }
 
+.circles {
+  display: flex;
+}
+
+.circles div {
+  margin: 0 10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #A0592A;
+}
+
+.circles div:active {
+  background-color: #FFBC48;
+}
+
 .App-header p {
   font-family: "Share";
   font-size: 20px;
@@ -78,11 +94,10 @@ code {
 }
 
 @media screen and (max-width: 999px) {
-  .App-header p  {
+  .App-header p {
     font-size: 15px;
   }
 }
-
 
 .buttonForAuth {
   margin-top: 100px;
