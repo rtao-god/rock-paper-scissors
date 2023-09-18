@@ -11,17 +11,17 @@ export default function Buttons() {
     const Telegram = () => {
         return (
             <div>
-                <a href='#'>
+                <a className={styles.aTegTelegramButton} href='#'>
                     <TelegramLoginButton
-                        botName="RtaoTestTelegramBot"
-                        dataOnauth={(user: TelegramUser) => console.log(user)}
-                        usePic="true"
-                        cornerRadius="50%"
+                        botName="YetAnotherRoshamBot"
+                        dataOnauth={(user: TelegramUser) => console.log(user.hash)}
+                        usePic={true}
+                        cornerRadius={0}
                         buttonSize="small"
                         className={styles.telegramLoginButton}
                         refs={telegramLoginButtonRef}
                     />
-                    <img src={telegramButton.src} alt="" />
+                    {/* <img src={telegramButton.src} alt="" /> */}
                 </a>
             </div>
         )

@@ -116,9 +116,17 @@ code {
   text-transform: uppercase;
 }
 
-iframe {
+/* iframe {
+  display: block;
+  z-index: 1000000000;
+  position: relative;
   color: red;
-}
+  background-color: red;
+  max-width: 100px;
+  max-height: 100px;
+  background-size: cover;
+  background-image: url("../pages//screenshots/1920-1680px/telegram.png");
+} */
 
 .playButton img:hover {
   border: 2px solid #fadd98;
