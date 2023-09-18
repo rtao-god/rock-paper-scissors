@@ -13,7 +13,7 @@ export default function Buttons() {
                         botName="RtaoTestTelegramBot"
                         dataOnauth={(user: TelegramUser) => console.log(user.hash)}
                         usePic={true}
-                        cornerRadius={0}
+                        cornerRadius={5000}
                         buttonSize="small"
                         className={styles.telegramLoginButton}
                         style={{ display: "block" }}
@@ -42,6 +42,7 @@ export default function Buttons() {
             {buttonArr.telegram &&
                 <Telegram />
             }
+            <div style={{width: "100px", height: "100px", borderRadius: "1009px", background: "red"}}>lol</div>
             {/* <button onClick={() => buttonBool()}> true </button> */}
         </div>
     )
