@@ -1,4 +1,17 @@
 .walletButton {
     background: transparent;
     border: 0;
+    cursor: pointer;
 }
+
+.walletButton img:hover {
+    border: 2px solid #fadd98;
+    border-radius: 50%;
+}
+
+@media screen and (max-width: 639px) {
+    .walletButton img:hover {
+        border: 0;
+    }
+}
+

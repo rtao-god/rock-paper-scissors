@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import TelegramLoginButton, { TelegramUser } from 'telegram-login-button'
 import styles from './telegramButton.module.css'
 
 export default function Buttons() {
+    const telegramLoginButtonRef = useRef()
 
     const [buttonArr, setButtonArr] = useState({ telegram: true, wallet: false })
 
@@ -11,6 +12,7 @@ export default function Buttons() {
             botName="RtaoTestTelegramBot"
             dataOnauth={(user: TelegramUser) => console.log(user)}
             className={styles.telegramLoginButton}
+            refs={telegramLoginButtonRef}
         />
     }
 
@@ -18,11 +20,15 @@ export default function Buttons() {
         console.log(user)
     }
 
-
     /*   function buttonBool() {
         setButtonArr({ telegram: true })
     
       } */
+
+    useEffect(() => {
+        const telegramButton = document.querySelector("iframe")
+        console.log(telegramLoginButtonRef.current)
+    }, [])
 
     return (
         <div>
@@ -30,6 +36,7 @@ export default function Buttons() {
                 <Telegram />
             }
             {/* <button onClick={() => buttonBool()}> true </button> */}
+            <script src='./index.js'></script>
         </div>
     )
 }

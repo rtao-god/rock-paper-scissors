@@ -78,11 +78,11 @@ code {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: #A0592A;
+  background-color: #a0592a;
 }
 
 .circles div:active {
-  background-color: #FFBC48;
+  background-color: #ffbc48;
 }
 
 .App-header p {
@@ -116,3 +116,26 @@ code {
   text-transform: uppercase;
 }
 
+#telegram-login-RtaoTestTelegramBot {
+  background-color: black;
+  color-scheme: dark;
+}
+
+#telegram-login-RtaoTestTelegramBot {
+  background-color: black;
+  color-scheme: dark;
+}
+
+.playButton {
+}
+
+.playButton img:hover {
+  border: 2px solid #fadd98;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 639px) {
+  .playButton img:hover {
+    border: 0;
+  }
+}

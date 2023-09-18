@@ -4,6 +4,7 @@ import slackeyFontImg from "./screenshots/Title/Rock-paper-scissors.png"
 import Buttons from '../UI/telegram/TelegramButton'
 import Head from "next/head"
 import WalletButton from "../UI/wallet/WalletButton"
+import playButton from "./screenshots/1920-1680px/play.png"
 
 const Home: NextPage = () => {
   const circlesRef = useRef(null)
@@ -23,7 +24,7 @@ const Home: NextPage = () => {
             <div></div>
             <div></div>
           </div>
-          <a href="tg://resolve?domain=YetAnotherRoshamBot"> PLAY </a>
+          <a className="playButton" href="tg://resolve?domain=YetAnotherRoshamBot"> <img src={playButton.src} alt="" /> </a>
 
           <WalletButton />
 
