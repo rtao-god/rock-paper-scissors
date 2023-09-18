@@ -18,6 +18,8 @@ export default function Buttons() {
                         cornerRadius={0}
                         buttonSize="small"
                         label="lol"
+                        text="ljjg"
+                        caption="dsfs"
                         className={styles.telegramLoginButton}
                         style={{ display: "block" }}
                     />
