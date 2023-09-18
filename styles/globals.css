@@ -129,6 +129,17 @@ iframe {
   background-image: url("../pages//screenshots/1920-1680px/telegram.png");
 }
 
+iframe .btn {
+  display: none;
+}
+
+#widget_login {
+  display: none;
+}
+
+.body_widget_login {
+  display: none;
+}
 
 .playButton img:hover {
   border: 2px solid #fadd98;

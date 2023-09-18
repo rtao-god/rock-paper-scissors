@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import TelegramLoginButton, { TelegramUser } from 'telegram-login-button'
 import styles from './telegramButton.module.css'
-import telegramButton from '../../pages/screenshots/1920-1680px/telegram.png'
 
 export default function Buttons() {
     // const telegramLoginButtonRef = useRef()
@@ -18,9 +17,10 @@ export default function Buttons() {
                         usePic={true}
                         cornerRadius={0}
                         buttonSize="small"
+                        label="lol"
                         className={styles.telegramLoginButton}
+                        style={{ display: "block" }}
                     />
-                    {/* <img src={telegramButton.src} alt="" /> */}
                 </a>
             </div>
         )
@@ -31,6 +31,7 @@ export default function Buttons() {
             const iframe: HTMLElement | null = document.querySelector("iframe")
             if (iframe) {
                 iframe.removeAttribute('style')
+                console.log(iframe)
             }
         }, 1000)
     }, [])
@@ -38,12 +39,6 @@ export default function Buttons() {
     const handleSuccessfulLogin = (user: TelegramUser) => {
         console.log(user)
     }
-
-    /*   function buttonBool() {
-        setButtonArr({ telegram: true })
-    
-      } */
-
 
     return (
         <div>
