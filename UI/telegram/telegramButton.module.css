@@ -1,4 +1,4 @@
-.telegramLoginButton iframe button {
-    background-color: red;
+.telegramLoginButton iframe .tgme_widget_login .tgme_widget_login_button {
+    background-color: rgb(255, 0, 221);
 }
 
