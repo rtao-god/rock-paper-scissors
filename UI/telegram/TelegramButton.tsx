@@ -27,6 +27,13 @@ export default function Buttons() {
         )
     }
 
+    useEffect(() => {
+        setTimeout(() => {
+            const telegramButton = document.querySelector("iframe").removeAttribute('style')
+            console.log(telegramButton)
+        }, 1000)
+    }, [])
+
     const handleSuccessfulLogin = (user: TelegramUser) => {
         console.log(user)
     }
@@ -36,10 +43,6 @@ export default function Buttons() {
     
       } */
 
-    useEffect(() => {
-        const telegramButton = document.querySelector("iframe")
-        console.log(telegramLoginButtonRef.current)
-    }, [])
 
     return (
         <div>
