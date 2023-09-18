@@ -4,7 +4,7 @@ import styles from './telegramButton.module.css'
 import telegramButton from '../../pages/screenshots/1920-1680px/telegram.png'
 
 export default function Buttons() {
-    const telegramLoginButtonRef = useRef()
+    // const telegramLoginButtonRef = useRef()
 
     const [buttonArr, setButtonArr] = useState({ telegram: true, wallet: false })
 
@@ -19,7 +19,6 @@ export default function Buttons() {
                         cornerRadius={0}
                         buttonSize="small"
                         className={styles.telegramLoginButton}
-                        ref={telegramLoginButtonRef}
                     />
                     {/* <img src={telegramButton.src} alt="" /> */}
                 </a>
@@ -29,8 +28,9 @@ export default function Buttons() {
 
     useEffect(() => {
         setTimeout(() => {
-            if (document.querySelector("iframe") !== null) {
-                document.querySelector("iframe").removeAttribute('style')
+            const iframe: HTMLElement | null = document.querySelector("iframe")
+            if (iframe) {
+                iframe.removeAttribute('style')
             }
         }, 1000)
     }, [])
