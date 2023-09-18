@@ -13,7 +13,7 @@ export default function Buttons() {
             <div>
                 <a className={styles.aTegTelegramButton} href='#'>
                     <TelegramLoginButton
-                        botName="YetAnotherRoshamBot"
+                        botName="RtaoTestTelegramBot"
                         dataOnauth={(user: TelegramUser) => console.log(user.hash)}
                         usePic={true}
                         cornerRadius={0}
