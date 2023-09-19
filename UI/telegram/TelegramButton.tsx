@@ -2,7 +2,6 @@ import React, { useState, useEffect, Dispatch, SetStateAction } from 'react'
 import TelegramLoginButton, { TelegramUser } from 'telegram-login-button'
 import styles from './telegramButton.module.css'
 interface IValueForButtons {
-    telegram: boolean;
     wallet: boolean;
     play: boolean;
 }
@@ -13,17 +12,14 @@ interface TelegramButtonProps {
 const TelegramButton: React.FC<TelegramButtonProps> = ({ setButtonArrValue }) => {
     const Telegram = () => {
         return (
-            <div>
-                <a className={styles.aTegTelegramButton} href='#'>
-                    <TelegramLoginButton
-                        botName="RtaoTestTelegramBot"
-                        dataOnauth={(user: TelegramUser) => user ? setButtonArrValue({ telegram: true, wallet: false, play: false }) : setButtonArrValue({ telegram: true, wallet: false, play: false })}
-                        buttonSize="small"
-                        className={styles.telegramLoginButton}
-                        style={{ display: "none" }}
-                    />
-                </a>
-            </div>
+            <a className={styles.aTegTelegramButton} href='#'>
+                <TelegramLoginButton
+                    botName="RtaoTestTelegramBot"
+                    dataOnauth={(user: TelegramUser) => user && setButtonArrValue({ wallet: true, play: false })}
+                    buttonSize="small"
+                    className={styles.telegramLoginButton}
+                />
+            </a>
         )
     }
 

@@ -5,13 +5,12 @@ import Buttons from '../components/Buttons'
 import Head from "next/head"
 
 interface IBooleanSteps {
-  first: boolean;
   second: boolean;
   third: boolean;
 }
 
 const Home: NextPage = () => {
-  const [booleanSteps, setBooleanSteps] = useState<IBooleanSteps>({ first: true, second: false, third: false })
+  const [booleanSteps, setBooleanSteps] = useState<IBooleanSteps>({ second: false, third: false })
 
   const circlesRef = useRef(null)
   return (
@@ -27,9 +26,9 @@ const Home: NextPage = () => {
           <p> Сonnect your Telegram to start the game </p>
 
           <div ref={circlesRef} className='steps'>
-            {booleanSteps.first &&
-              <div style={{ backgroundColor: "#ffbc48" }}></div>
-            }
+
+            <div style={{ backgroundColor: "#ffbc48" }}></div>
+
             {booleanSteps.second
               ? <div style={{ background: "#ffbc48" }}></div>
               : <div style={{ background: "#a0592a" }}></div>
