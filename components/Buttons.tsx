@@ -20,7 +20,7 @@ interface Buttons {
 }
 
 const Buttons: React.FC<Buttons> = ({ setBooleanSteps }) => {
-    const [buttonArrValue, setButtonArrValue] = useState<IValueForButtons>({ telegram: false, wallet: false, play: false })
+    const [buttonArrValue, setButtonArrValue] = useState<IValueForButtons>({ telegram: false, wallet: true, play: false })
 
     function func() {
         buttonArrValue.telegram ? setBooleanSteps({ first: true, second: true, third: false }) : setBooleanSteps({ first: true, second: false, third: false })
