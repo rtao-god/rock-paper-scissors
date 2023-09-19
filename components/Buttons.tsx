@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Dispatch, SetStateAction } from 'react'
 import WalletButton from '../UI/wallet/WalletButton'
 import playButton from "../pages/screenshots/1920-1680px/play.png"
 import TelegramButton from '../UI/telegram/TelegramButton'
@@ -9,10 +9,26 @@ interface IValueForButtons {
     play: boolean;
 }
 
-export default function Buttons() {
+interface IBooleanSteps {
+    first: boolean;
+    second: boolean;
+    third: boolean;
+}
+
+interface Buttons {
+    setBooleanSteps: Dispatch<SetStateAction<IBooleanSteps>>;
+}
+
+const Buttons: React.FC<Buttons> = ({ setBooleanSteps }) => {
     const [buttonArrValue, setButtonArrValue] = useState<IValueForButtons>({ telegram: true, wallet: false, play: false })
 
-    console.log(buttonArrValue)
+    function func() {
+        buttonArrValue.telegram ? setBooleanSteps({ first: true, second: true, third: true }) : console.log("telegram no ")
+    }
+    useEffect(() => {
+        func()
+        console.log(buttonArrValue)
+    }, [buttonArrValue])
 
     return (
         <div>
@@ -28,17 +44,19 @@ export default function Buttons() {
             }
 
 
-            {buttonArrValue.telegram == false &&
+            {buttonArrValue.telegram === false &&
                 <p>telegram no </p>
             }
 
-            {buttonArrValue.wallet == false &&
+            {buttonArrValue.wallet === false &&
                 <p>wallet no</p>
             }
-            {buttonArrValue.play == false &&
+            {buttonArrValue.play === false &&
                 <p>play no</p>
             }
 
         </div>
     )
 }
+
+export default Buttons

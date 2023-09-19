@@ -11,8 +11,6 @@ interface TelegramButtonProps {
 }
 
 const TelegramButton: React.FC<TelegramButtonProps> = ({ setButtonArrValue }) => {
-    const [boolTelegram, setBoolTelegram] = useState(false)
-
     const Telegram = () => {
         return (
             <div>
@@ -27,10 +25,7 @@ const TelegramButton: React.FC<TelegramButtonProps> = ({ setButtonArrValue }) =>
                 </a>
             </div>
         )
-    }
-
-    console.log(setButtonArrValue)
-    
+    }    
 
     useEffect(() => {
         setTimeout(() => {

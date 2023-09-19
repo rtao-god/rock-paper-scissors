@@ -69,20 +69,16 @@ code {
   }
 }
 
-.circles {
+.steps {
   display: flex;
 }
 
-.circles div {
+.steps div {
   margin: 0 10px;
   width: 10px;
   height: 10px;
   border-radius: 50%;
   background-color: #a0592a;
-}
-
-.circles div:active {
-  background-color: #ffbc48;
 }
 
 .App-header p {

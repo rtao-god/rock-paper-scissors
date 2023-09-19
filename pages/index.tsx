@@ -1,10 +1,18 @@
-import React, { useRef } from "react"
+import React, { useRef, useState } from "react"
 import type { NextPage } from 'next'
 import slackeyFontImg from "./screenshots/Title/Rock-paper-scissors.png"
 import Buttons from '../components/Buttons'
 import Head from "next/head"
 
+interface IBooleanSteps {
+  first: boolean;
+  second: boolean;
+  third: boolean;
+}
+
 const Home: NextPage = () => {
+  const [booleanSteps, setBooleanSteps] = useState<IBooleanSteps>({ first: true, second: false, third: false })
+
   const circlesRef = useRef(null)
   return (
     <div>
@@ -18,13 +26,23 @@ const Home: NextPage = () => {
           <img src={slackeyFontImg.src} className="SlackeyFontImg" alt="" />
           <p> Сonnect your Telegram to start the game </p>
 
-          <div ref={circlesRef} className='circles'>
-            <div></div>
-            <div></div>
-            <div></div>
+          <div ref={circlesRef} className='steps'>
+            {booleanSteps.first
+              ? <div style={{ backgroundColor: "#ffbc48" }}></div>
+              : <div style={{ backgroundColor: "#a0592a" }}></div>
+            }
+            {booleanSteps.second
+              ? <div style={{ backgroundColor: "#ffbc48" }}></div>
+              : <div style={{ backgroundColor: "#a0592a" }}></div>
+
+            }
+            {booleanSteps.third
+              ? <div style={{ backgroundColor: "#ffbc48" }}></div>
+              : <div style={{ backgroundColor: "#a0592a" }}></div>
+            }
           </div>
 
-          <Buttons />
+          <Buttons setBooleanSteps={setBooleanSteps} />
         </header>
       </div>
     </div>
