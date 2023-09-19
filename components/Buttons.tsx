@@ -10,7 +10,7 @@ interface IValueForButtons {
 }
 
 export default function Buttons() {
-    const [buttonArrValue, setButtonArrValue] = useState<IValueForButtons>({ telegram: true, wallet: true, play: true })
+    const [buttonArrValue, setButtonArrValue] = useState<IValueForButtons>({ telegram: true, wallet: false, play: false })
 
     console.log(buttonArrValue)
 
