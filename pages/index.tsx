@@ -27,13 +27,12 @@ const Home: NextPage = () => {
           <p> Сonnect your Telegram to start the game </p>
 
           <div ref={circlesRef} className='steps'>
-            {booleanSteps.first
-              ? <div style={{ backgroundColor: "#ffbc48" }}></div>
-              : <div style={{ backgroundColor: "#a0592a" }}></div>
+            {booleanSteps.first &&
+              <div style={{ backgroundColor: "#ffbc48" }}></div>
             }
             {booleanSteps.second
-              ? <div style={{ backgroundColor: "#ffbc48" }}></div>
-              : <div style={{ backgroundColor: "#a0592a" }}></div>
+              ? <div style={{ background: "#ffbc48" }}></div>
+              : <div style={{ background: "#a0592a" }}></div>
 
             }
             {booleanSteps.third

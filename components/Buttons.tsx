@@ -20,19 +20,19 @@ interface Buttons {
 }
 
 const Buttons: React.FC<Buttons> = ({ setBooleanSteps }) => {
-    const [buttonArrValue, setButtonArrValue] = useState<IValueForButtons>({ telegram: true, wallet: false, play: false })
+    const [buttonArrValue, setButtonArrValue] = useState<IValueForButtons>({ telegram: false, wallet: false, play: false })
 
     function func() {
-        buttonArrValue.telegram ? setBooleanSteps({ first: true, second: true, third: true }) : console.log("telegram no ")
+        buttonArrValue.telegram ? setBooleanSteps({ first: true, second: true, third: false }) : setBooleanSteps({ first: true, second: false, third: false })
     }
     useEffect(() => {
         func()
-        console.log(buttonArrValue)
+        console.log(buttonArrValue, buttonArrValue.telegram)
     }, [buttonArrValue])
 
     return (
         <div>
-            {buttonArrValue.telegram &&
+            {buttonArrValue.wallet !== true &&
                 <TelegramButton setButtonArrValue={setButtonArrValue} />
             }
 
@@ -42,19 +42,6 @@ const Buttons: React.FC<Buttons> = ({ setBooleanSteps }) => {
             {buttonArrValue.play &&
                 <a className="playButton" href="tg://resolve?domain=YetAnotherRoshamBot"> <img src={playButton.src} alt="" /> </a>
             }
-
-
-            {buttonArrValue.telegram === false &&
-                <p>telegram no </p>
-            }
-
-            {buttonArrValue.wallet === false &&
-                <p>wallet no</p>
-            }
-            {buttonArrValue.play === false &&
-                <p>play no</p>
-            }
-
         </div>
     )
 }

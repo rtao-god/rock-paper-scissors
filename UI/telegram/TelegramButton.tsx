@@ -25,7 +25,7 @@ const TelegramButton: React.FC<TelegramButtonProps> = ({ setButtonArrValue }) =>
                 </a>
             </div>
         )
-    }    
+    }
 
     useEffect(() => {
         setTimeout(() => {

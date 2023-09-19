@@ -78,7 +78,6 @@ code {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: #a0592a;
 }
 
 .App-header p {
@@ -108,16 +107,12 @@ code {
   top: -150px;
   font-family: "Slackey";
   font-weight: 900;
-  color: red;
+
   text-transform: uppercase;
 }
 
 iframe {
   background-image: url("../pages/screenshots/1920-1680px/telegram.png");
-}
-
-html {
-  color: red;
 }
 
 .playButton img:hover {
