@@ -1,10 +1,8 @@
 import React, { useRef } from "react"
 import type { NextPage } from 'next'
 import slackeyFontImg from "./screenshots/Title/Rock-paper-scissors.png"
-import Buttons from '../UI/telegram/TelegramButton'
+import Buttons from '../components/Buttons'
 import Head from "next/head"
-import WalletButton from "../UI/wallet/WalletButton"
-import playButton from "./screenshots/1920-1680px/play.png"
 
 const Home: NextPage = () => {
   const circlesRef = useRef(null)
@@ -19,14 +17,12 @@ const Home: NextPage = () => {
         <header className="App-header">
           <img src={slackeyFontImg.src} className="SlackeyFontImg" alt="" />
           <p> Сonnect your Telegram to start the game </p>
+
           <div ref={circlesRef} className='circles'>
             <div></div>
             <div></div>
             <div></div>
           </div>
-          <a className="playButton" href="tg://resolve?domain=YetAnotherRoshamBot"> <img src={playButton.src} alt="" /> </a>
-
-          <WalletButton />
 
           <Buttons />
         </header>

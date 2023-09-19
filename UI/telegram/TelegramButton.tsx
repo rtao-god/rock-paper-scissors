@@ -1,9 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Dispatch, SetStateAction } from 'react'
 import TelegramLoginButton, { TelegramUser } from 'telegram-login-button'
 import styles from './telegramButton.module.css'
 
-export default function Buttons() {
-    const [buttonArr, setButtonArr] = useState({ telegram: true, wallet: false })
+interface IValueForButtons {
+    telegram: boolean;
+    wallet: boolean;
+    play: boolean;
+}
+interface TelegramButtonProps {
+    setButtonArrValue: Dispatch<SetStateAction<IValueForButtons>>;
+}
+
+const TelegramButton: React.FC<TelegramButtonProps> = ({ setButtonArrValue }) => {
+    const [boolTelegram, setBoolTelegram] = useState(false)
 
     const Telegram = () => {
         return (
@@ -11,7 +20,7 @@ export default function Buttons() {
                 <a className={styles.aTegTelegramButton} href='#'>
                     <TelegramLoginButton
                         botName="RtaoTestTelegramBot"
-                        dataOnauth={(user: TelegramUser) => user ? console.log("ttt") : console.log("no")}
+                        dataOnauth={(user: TelegramUser) => user ? setButtonArrValue({ telegram: true, wallet: true, play: true }) : setButtonArrValue({ telegram: false, wallet: false, play: false })}
                         buttonSize="small"
                         className={styles.telegramLoginButton}
                         style={{ display: "none" }}
@@ -32,17 +41,9 @@ export default function Buttons() {
         }, 1000)
     }, [])
 
-    const handleSuccessfulLogin = (user: TelegramUser) => {
-        console.log(user)
-        user ? console.log("yes") : console.log("no")
-    }
-
     return (
-        <div>
-            {buttonArr.telegram &&
-                <Telegram />
-            }
-            <button onClick={() => handleSuccessfulLogin}> true </button>
-        </div>
+        <Telegram />
     )
 }
+
+export default TelegramButton
