@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 import styles from "./walletButton.module.css"
 import walletImg from '../../pages/screenshots/1920-1680px/wallet.png'
 
-export default function WalletButton() {
+interface IValueForButtons {
+  wallet: boolean;
+  play: boolean;
+}
+
+interface WalletButtonProps {
+  setButtonArrValue: Dispatch<SetStateAction<IValueForButtons>>;
+}
+
+const WalletButton: React.FC<WalletButtonProps> = ({ setButtonArrValue }) => {
   return (
     <ConnectButton.Custom>
       {({
@@ -25,6 +34,10 @@ export default function WalletButton() {
           (!authenticationStatus ||
             authenticationStatus === 'authenticated');
 
+        console.log(account?.balanceSymbol, chain, openAccountModal, openConnectModal, mounted)
+
+        if (account?.balanceSymbol !== "") setButtonArrValue({ wallet: true, play: true })
+        
         return (
           <div
             {...(!ready && {
@@ -98,3 +111,5 @@ export default function WalletButton() {
     </ConnectButton.Custom>
   )
 }
+
+export default WalletButton

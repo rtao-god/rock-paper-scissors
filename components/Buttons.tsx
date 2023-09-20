@@ -13,15 +13,15 @@ interface IBooleanSteps {
     third: boolean;
 }
 
-interface Buttons {
+interface ButtonsProps {
     setBooleanSteps: Dispatch<SetStateAction<IBooleanSteps>>;
 }
 
-const Buttons: React.FC<Buttons> = ({ setBooleanSteps }) => {
+const Buttons: React.FC<ButtonsProps> = ({ setBooleanSteps }) => {
     const [buttonArrValue, setButtonArrValue] = useState<IValueForButtons>({ wallet: false, play: false })
 
     function func() {
-        buttonArrValue.wallet ? setBooleanSteps({ second: true, third: false }) : setBooleanSteps({ second: false, third: false })
+        buttonArrValue.wallet && setBooleanSteps({ second: true, third: false }) 
     }
     
     useEffect(() => {
@@ -31,12 +31,12 @@ const Buttons: React.FC<Buttons> = ({ setBooleanSteps }) => {
 
     return (
         <div>
-            {/* {buttonArrValue.wallet !== true && */}
+            {buttonArrValue.wallet !== true &&
                 <TelegramButton setButtonArrValue={setButtonArrValue} />
-            {/* } */}
+            }
 
             {buttonArrValue.wallet &&
-                <WalletButton />
+                <WalletButton setButtonArrValue={setButtonArrValue} />
             }
             {buttonArrValue.play &&
                 <a className="playButton" href="tg://resolve?domain=YetAnotherRoshamBot"> <img src={playButton.src} alt="" /> </a>
