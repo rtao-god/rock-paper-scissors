@@ -41,7 +41,7 @@ const Buttons: React.FC<ButtonsProps> = ({ setBooleanSteps }) => {
             {buttonArrValue.play &&
                 <a onClick={() => setBooleanSteps({ second: true, third: true })} className="playButton" href="tg://resolve?domain=YetAnotherRoshamBot"> <img src={playButton.src} alt="" /> </a>
             }
-        </div>
+</div>
     )
 }
 

@@ -65,6 +65,27 @@ interface TelegramButtonProps {
 }
 
 const TelegramButton: React.FC<TelegramButtonProps> = ({ setButtonArrValue }) => {
+    useEffect(() => {
+        const checkAuthStatus = async () => {
+            try {
+                const response = await fetch("/path/to/your/auth/status/endpoint");
+                const data = await response.json();
+                
+                if (data.isAuthenticated) {
+                    // User is authenticated. Update the state or do any other tasks.
+                    setButtonArrValue({ telegram: false, wallet: true, play: false });
+                }
+            } catch (error) {
+                console.error("Failed to check authentication status:", error);
+            }
+        };
+    
+        const interval = setInterval(checkAuthStatus, 5000); // Poll every 5 seconds
+    
+        return () => clearInterval(interval); // Cleanup on unmount
+    }, []);
+
+    
     const handleLogin = () => {
         const width = 400;
         const height = 600;
