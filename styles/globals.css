@@ -111,10 +111,6 @@ code {
   text-transform: uppercase;
 }
 
-iframe {
-  background-image: url("../pages/screenshots/1920-1680px/telegram.png");
-}
-
 .playButton img:hover {
   border: 2px solid #fadd98;
   border-radius: 50%;
@@ -124,12 +120,4 @@ iframe {
   .playButton img:hover {
     border: 0;
   }
-}
-
-.iekbcc0 {
-  display: none;
-}
-
-.iekbcc0 button {
-  display: none;
 }

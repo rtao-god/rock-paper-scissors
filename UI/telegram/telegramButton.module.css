@@ -1,14 +1,12 @@
-/* .aTegTelegramButton {
-    background-size: cover;
-    width: 100px;
-    height: 100px;
-    display: block;
-    background-image: url("../../pages//screenshots/1920-1680px/telegram.png");
-}
- */
-.aTegTelegramButton:hover {
-    border: 2px solid #fadd98;
+.telegramLoginButton {
     border-radius: 50%;
+    margin-top: 140px;
+    background-image: url("../../pages/screenshots/1920-1680px/telegram.png");
+    background-position: top;
+}
+
+.telegramLoginButton:hover {
+    border: 2px solid #fadd98;
 }
 
 @media screen and (max-width: 639px) {
@@ -16,4 +14,3 @@
         border: 0;
     }
 }
-
