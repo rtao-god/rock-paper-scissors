@@ -32,7 +32,7 @@ const Buttons: React.FC<ButtonsProps> = ({ setBooleanSteps }) => {
 
     return (
         <div>
-            {buttonArrValue.wallet !== true &&
+            {buttonArrValue.telegram &&
                 <TelegramButton setButtonArrValue={setButtonArrValue} />
             }
 
