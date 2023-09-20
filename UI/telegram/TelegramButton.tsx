@@ -51,11 +51,20 @@ export default TelegramButton */
 
 
 
-import React from 'react'
+import React, { useEffect, Dispatch, SetStateAction } from 'react'
 import styles from './telegramButton.module.css'
 import imgButtonTelegram from '../../pages/screenshots/1920-1680px/telegram.png'
 
-const TelegramButton = () => {
+interface IValueForButtons {
+    telegram: boolean;
+    wallet: boolean;
+    play: boolean;
+}
+interface TelegramButtonProps {
+    setButtonArrValue: Dispatch<SetStateAction<IValueForButtons>>;
+}
+
+const TelegramButton: React.FC<TelegramButtonProps> = ({ setButtonArrValue }) => {
     const handleLogin = () => {
         const width = 400;
         const height = 600;
