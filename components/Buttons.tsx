@@ -4,6 +4,7 @@ import playButton from "../pages/screenshots/1920-1680px/play.png"
 import TelegramButton from '../UI/telegram/TelegramButton'
 
 interface IValueForButtons {
+    telegram: boolean;
     wallet: boolean;
     play: boolean;
 }
@@ -18,7 +19,7 @@ interface ButtonsProps {
 }
 
 const Buttons: React.FC<ButtonsProps> = ({ setBooleanSteps }) => {
-    const [buttonArrValue, setButtonArrValue] = useState<IValueForButtons>({ wallet: false, play: false })
+    const [buttonArrValue, setButtonArrValue] = useState<IValueForButtons>({ telegram: true, wallet: false, play: false })
 
     function func() {
         buttonArrValue.wallet && setBooleanSteps({ second: true, third: false }) 

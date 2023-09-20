@@ -4,6 +4,7 @@ import styles from "./walletButton.module.css"
 import walletImg from '../../pages/screenshots/1920-1680px/wallet.png'
 
 interface IValueForButtons {
+  telegram: boolean;
   wallet: boolean;
   play: boolean;
 }
@@ -34,9 +35,7 @@ const WalletButton: React.FC<WalletButtonProps> = ({ setButtonArrValue }) => {
           (!authenticationStatus ||
             authenticationStatus === 'authenticated');
 
-        console.log(account?.balanceSymbol, chain, openAccountModal, openConnectModal, mounted)
-
-        if (account?.balanceSymbol !== "") setButtonArrValue({ wallet: false, play: true })
+        if (account?.balanceSymbol !== "") setButtonArrValue({ telegram: false, wallet: false, play: true })
         
         return (
           <div
