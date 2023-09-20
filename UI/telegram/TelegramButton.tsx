@@ -30,11 +30,15 @@ const TelegramButton: React.FC<TelegramButtonProps> = ({ setButtonArrValue }) =>
                 iframe.setAttribute("width", "170px")
                 iframe.setAttribute("height", "170px")
             }
+            const teleg = document.getElementsByClassName("tgme_widget_login.small")
+            console.log(teleg)
         }, 1000)
     }, [])
 
     return (
-        <Telegram />
+        <div>
+            <Telegram />
+        </div>
     )
 }
 
