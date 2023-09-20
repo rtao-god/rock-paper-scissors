@@ -15,7 +15,7 @@ const TelegramButton: React.FC<TelegramButtonProps> = ({ setButtonArrValue }) =>
             <a className={styles.aTegTelegramButton} href='#'>
                 <TelegramLoginButton
                     botName="RtaoTestTelegramBot"
-                    dataOnauth={(user: TelegramUser) => user && setButtonArrValue({ wallet: true, play: false })}
+                    dataOnauth={(user: TelegramUser) => user && setButtonArrValue({ wallet: false, play: false })}
                     buttonSize="small"
                     className={styles.telegramLoginButton}
                 />
