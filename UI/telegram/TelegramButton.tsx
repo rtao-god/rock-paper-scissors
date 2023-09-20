@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Dispatch, SetStateAction } from 'react'
 import TelegramLoginButton, { TelegramUser } from 'telegram-login-button'
+import '../../styles/globals.css'
 import styles from './telegramButton.module.css'
 interface IValueForButtons {
     telegram: boolean;
