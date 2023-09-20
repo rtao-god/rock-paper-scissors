@@ -94,22 +94,6 @@ code {
   }
 }
 
-.buttonForAuth {
-  margin-top: 100px;
-  border: 0;
-  outline: none;
-  background: transparent;
-  cursor: pointer;
-}
-
-.buttonForAuth p {
-  position: relative;
-  top: -150px;
-  font-family: "Slackey";
-  font-weight: 900;
-  text-transform: uppercase;
-}
-
 .playButton img:hover {
   border: 2px solid #fadd98;
   border-radius: 50%;
@@ -121,8 +105,6 @@ code {
   }
 }
 
-.tgme_widget_login.small button.tgme_widget_login_button {
-  display: none;
-  background-color: red;
+#telegram-login-RtaoTestTelegramBot {
+  cursor: pointer;
 }
-
