@@ -10,12 +10,12 @@
 }
 
 @media screen and (max-width: 639px) {
-    .aTegTelegramButton:hover {
+    .telegramLoginButton:hover {
         border: 0;
     }
 }
 
-.tgme_widget_login_button {
+.tgme_widget_login.small button.tgme_widget_login_button  {
     display: none;
     background-color: red;
 }
