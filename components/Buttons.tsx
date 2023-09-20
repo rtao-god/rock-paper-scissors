@@ -22,12 +22,11 @@ const Buttons: React.FC<ButtonsProps> = ({ setBooleanSteps }) => {
     const [buttonArrValue, setButtonArrValue] = useState<IValueForButtons>({ telegram: true, wallet: false, play: false })
 
     function func() {
-        buttonArrValue.wallet && setBooleanSteps({ second: true, third: false }) 
+        buttonArrValue.wallet && setBooleanSteps({ second: true, third: false })
     }
-    
+
     useEffect(() => {
         func()
-        console.log(buttonArrValue)
     }, [buttonArrValue])
 
     return (
@@ -40,7 +39,7 @@ const Buttons: React.FC<ButtonsProps> = ({ setBooleanSteps }) => {
                 <WalletButton setButtonArrValue={setButtonArrValue} />
             }
             {buttonArrValue.play &&
-                <a className="playButton" href="tg://resolve?domain=YetAnotherRoshamBot"> <img src={playButton.src} alt="" /> </a>
+                <a onClick={() => setBooleanSteps({ second: true, third: true })} className="playButton" href="tg://resolve?domain=YetAnotherRoshamBot"> <img src={playButton.src} alt="" /> </a>
             }
         </div>
     )
