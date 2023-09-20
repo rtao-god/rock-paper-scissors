@@ -36,7 +36,7 @@ const WalletButton: React.FC<WalletButtonProps> = ({ setButtonArrValue }) => {
 
         console.log(account?.balanceSymbol, chain, openAccountModal, openConnectModal, mounted)
 
-        if (account?.balanceSymbol !== "") setButtonArrValue({ wallet: true, play: true })
+        if (account?.balanceSymbol !== "") setButtonArrValue({ wallet: false, play: true })
         
         return (
           <div
