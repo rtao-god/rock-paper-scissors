@@ -8,9 +8,9 @@ function TelegramRedirectHandler() {
         // Wait until router object is populated on client side
         if (router.isReady) {
             const { id, first_name: firstName } = router.query;
-
+            console.log(id, firstName, "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd", router.query, router.isReady, router )
             if (id && firstName) {
-                console.log(id, firstName, "hgggggggggggggggggggggggg")
+                console.log(id, firstName, "hggggggggggggggggggggggggfffffffffffffffffffffffffffffffffffffffffffffffffffffffffff")
             }
         }
     }, [router.isReady, router.query]);
