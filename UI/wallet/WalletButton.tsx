@@ -2,6 +2,8 @@ import React, { Dispatch, SetStateAction } from 'react'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 import styles from "./walletButton.module.css"
 import walletImg from '../../pages/screenshots/1920-1680px/wallet.png'
+import { createAuthenticationAdapter } from '@rainbow-me/rainbowkit';
+import { SiweMessage } from 'siwe';
 
 interface IValueForButtons {
   telegram: boolean;
@@ -13,7 +15,52 @@ interface WalletButtonProps {
   setButtonArrValue: Dispatch<SetStateAction<IValueForButtons>>;
 }
 
+const authenticationAdapter = createAuthenticationAdapter({
+  getNonce: async () => {
+    const response = await fetch('/api/nonce');
+    return await response.text();
+  },
+
+  createMessage: ({ nonce, address, chainId }) => {
+    return new SiweMessage({
+      domain: window.location.host,
+      address,
+      statement: 'Sign in with Ethereum to the app.',
+      uri: window.location.origin,
+      version: '1',
+      chainId,
+      nonce,
+    });
+  },
+
+  getMessageBody: ({ message }) => {
+    return message.prepareMessage();
+  },
+
+  verify: async ({ message, signature }) => {
+
+    const verifyRes = await fetch('/api/verify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message, signature }),
+    });
+    console.log(authenticationAdapter);
+
+    return Boolean(verifyRes.ok);
+  },
+
+
+  signOut: async () => {
+    console.log("lolol")
+
+    await fetch('/api/logout');
+  },
+});
+
+
+
 const WalletButton: React.FC<WalletButtonProps> = ({ setButtonArrValue }) => {
+
   return (
     <ConnectButton.Custom>
       {({
@@ -35,8 +82,10 @@ const WalletButton: React.FC<WalletButtonProps> = ({ setButtonArrValue }) => {
           (!authenticationStatus ||
             authenticationStatus === 'authenticated');
 
-        if (account?.balanceSymbol !== "") setButtonArrValue({ telegram: false, wallet: false, play: true })
-        
+        console.log()
+
+        // if (account?.balanceSymbol !== "") setButtonArrValue({ telegram: false, wallet: false, play: true })
+
         return (
           <div
             {...(!ready && {
@@ -52,7 +101,6 @@ const WalletButton: React.FC<WalletButtonProps> = ({ setButtonArrValue }) => {
               if (!connected) {
                 return (
                   <button className={styles.walletButton} onClick={openConnectModal} type="button">
-                    <img src={walletImg.src} alt="" />
                   </button>
                 );
               }
@@ -65,42 +113,50 @@ const WalletButton: React.FC<WalletButtonProps> = ({ setButtonArrValue }) => {
                 );
               }
 
+              function furtherFunc() {
+                setButtonArrValue({ telegram: false, wallet: false, play: true })
+              }
+
               return (
-                <div style={{ display: 'flex', gap: 12 }}>
-                  <button
-                    onClick={openChainModal}
-                    style={{ display: 'flex', alignItems: 'center' }}
-                    type="button"
-                  >
-                    {chain.hasIcon && (
-                      <div
-                        style={{
-                          background: chain.iconBackground,
-                          width: 12,
-                          height: 12,
-                          borderRadius: 999,
-                          overflow: 'hidden',
-                          marginRight: 4,
-                        }}
-                      >
-                        {chain.iconUrl && (
-                          <img
-                            alt={chain.name ?? 'Chain icon'}
-                            src={chain.iconUrl}
-                            style={{ width: 12, height: 12 }}
-                          />
-                        )}
-                      </div>
-                    )}
-                    {chain.name}
+                <div className={styles.blockDataAndButton}>
+                  <button onClick={furtherFunc} className={styles.walletButton} type="button">
                   </button>
 
-                  <button onClick={openAccountModal} type="button">
-                    {account.displayName}
-                    {account.displayBalance
-                      ? ` (${account.displayBalance})`
-                      : ''}
-                  </button>
+                  <div style={{ display: 'flex', gap: 12 }} className={styles.walletButtonData}>
+                    <button
+                      onClick={openChainModal}
+                      style={{ display: 'flex', alignItems: 'center' }}
+                      type="button"
+                    >
+                      {chain.hasIcon && (
+                        <div
+                          style={{
+                            background: chain.iconBackground,
+                            width: 12,
+                            height: 12,
+                            borderRadius: 999,
+                            overflow: 'hidden',
+                            marginRight: 4,
+                          }}
+                        >
+                          {chain.iconUrl && (
+                            <img
+                              alt={chain.name ?? 'Chain icon'}
+                              src={chain.iconUrl}
+                              style={{ width: 12, height: 12 }}
+                            />
+                          )}
+                        </div>
+                      )}
+                      {chain.name}
+                    </button>
+                    <button onClick={openAccountModal} type="button">
+                      {account.displayName}
+                      {account.displayBalance
+                        ? ` (${account.displayBalance})`
+                        : ''}
+                    </button>
+                  </div>
                 </div>
               );
             })()}

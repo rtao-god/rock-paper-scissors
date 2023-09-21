@@ -68,7 +68,6 @@ interface TelegramButtonProps {
 const TelegramButton: React.FC<TelegramButtonProps> = ({ setButtonArrValue }) => {
     useEffect(() => {
         const checkAuthStatus = async () => {
-            setButtonArrValue({ telegram: false, wallet: true, play: false });
             try {
                 const response = await fetch("https://oauth.telegram.org/auth?bot_id=6626043922&origin=https://rock-paper-scissors-navy-eta.vercel.app/&request_access=write");
                 const data = await response.json();
@@ -77,10 +76,12 @@ const TelegramButton: React.FC<TelegramButtonProps> = ({ setButtonArrValue }) =>
                     // User is authenticated. Update the state or do any other tasks.
                     setButtonArrValue({ telegram: false, wallet: true, play: false });
                     console.log(data.isAuthenticated)
-                    
+
                 }
+                console.log(response.status, data)
+
             } catch (error) {
-                console.error("Failed to check authentication status:", error);
+                console.error("Failed to check authentication status:", error);                
             }
         };
 
@@ -91,6 +92,7 @@ const TelegramButton: React.FC<TelegramButtonProps> = ({ setButtonArrValue }) =>
 
 
     const handleLogin = () => {
+        setButtonArrValue({ telegram: false, wallet: true, play: false });
         const width = 400;
         const height = 600;
         const left = (window.innerWidth / 2) - (width / 2);
@@ -99,7 +101,7 @@ const TelegramButton: React.FC<TelegramButtonProps> = ({ setButtonArrValue }) =>
         window.open(
             'https://oauth.telegram.org/auth?bot_id=6626043922&origin=https://rock-paper-scissors-navy-eta.vercel.app/&request_access=write',
             'TelegramAuth',
-            `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=no, width=${width}, height=${height}, top=${top}, left=${left}`
+            `toolbar=no, location=no, directories=no, status=yes, menubar=no, scrollbars=yes, resizable=no, copyhistory=no, width=${width}, height=${height}, top=${top}, left=${left}`
         );
     };
 
@@ -107,9 +109,9 @@ const TelegramButton: React.FC<TelegramButtonProps> = ({ setButtonArrValue }) =>
         <div>
             <button onClick={handleLogin} className={styles.telegramLoginButton}>
             </button>
-            
-                {/* <TelegramRedirectHandler /> */}
-            
+
+            {/* <TelegramRedirectHandler /> */}
+
         </div>
     );
 }

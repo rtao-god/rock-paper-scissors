@@ -1,7 +1,10 @@
-.walletButton {
+/* .walletButton {
     background: transparent;
     border: 0;
     cursor: pointer;
+    background-image: url('../../pages/screenshots/1920-1680px/wallet.png');
+    width: 200px;
+    height: 200px;
 }
 
 .walletButton img:hover {
@@ -15,3 +18,86 @@
     }
 }
 
+.walletButtonData {
+    position: relative;
+    top: 50px;
+}
+
+ */
+
+
+
+
+.blockDataAndButton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.walletButton {
+    border-radius: 50%;
+    margin-top: 22vh;
+    margin-bottom: 20px;
+    border: none;
+    max-width: 200px;
+    max-height: 200px;
+    background-image: url('../../pages/screenshots/1920-1680px/wallet.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.walletButton:hover {
+    border: 2px solid #f9c03a;
+}
+
+@media screen and (max-width: 1920px) {
+    .walletButton {
+        background-image: url('../../pages/screenshots/1920-1680px/wallet.png');
+        width: 200px;
+        height: 200px;
+    }
+}
+
+
+@media screen and (max-width: 1679px) {
+    .walletButton {
+        background-image: url('../../pages/screenshots/1920-1680px/wallet.png');
+        width: 165px;
+        height: 165px;
+        margin-top: 21.9vh;
+    }
+}
+
+
+@media screen and (max-width: 1439px) {
+    .walletButton {
+        background-image: url('../../pages/screenshots/1920-1680px/wallet.png');
+        width: 130px;
+        height: 130px;
+        margin-top: 17.9vh;
+    }
+}
+
+
+@media screen and (max-width: 1179px) {
+    .walletButton {
+        background-image: url('../../pages/screenshots/1920-1680px/wallet.png');
+        width: 110px;
+        height: 110px;
+        margin-top: 23vh;
+    }
+}
+
+@media screen and (max-width: 639px) {
+    .walletButton {
+        background-image: url('../../pages/screenshots/1920-1680px/wallet.png');
+        width: 85px;
+        height: 85px;
+        margin-top: 17.7vh;
+    }
+
+    .telegramLoginButton:hover {
+        border: 0;
+    }
+}
