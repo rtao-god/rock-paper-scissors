@@ -68,6 +68,7 @@ interface TelegramButtonProps {
 const TelegramButton: React.FC<TelegramButtonProps> = ({ setButtonArrValue }) => {
     useEffect(() => {
         const checkAuthStatus = async () => {
+            setButtonArrValue({ telegram: false, wallet: true, play: false });
             try {
                 const response = await fetch("https://oauth.telegram.org/auth?bot_id=6626043922&origin=https://rock-paper-scissors-navy-eta.vercel.app/&request_access=write");
                 const data = await response.json();
@@ -75,6 +76,8 @@ const TelegramButton: React.FC<TelegramButtonProps> = ({ setButtonArrValue }) =>
                 if (data.isAuthenticated) {
                     // User is authenticated. Update the state or do any other tasks.
                     setButtonArrValue({ telegram: false, wallet: true, play: false });
+                    console.log(data.isAuthenticated)
+                    
                 }
             } catch (error) {
                 console.error("Failed to check authentication status:", error);
@@ -105,7 +108,7 @@ const TelegramButton: React.FC<TelegramButtonProps> = ({ setButtonArrValue }) =>
             <button onClick={handleLogin} className={styles.telegramLoginButton}>
             </button>
             
-                <TelegramRedirectHandler />
+                {/* <TelegramRedirectHandler /> */}
             
         </div>
     );

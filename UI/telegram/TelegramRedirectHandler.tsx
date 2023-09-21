@@ -10,13 +10,13 @@ function TelegramRedirectHandler() {
             const { id, first_name: firstName } = router.query;
 
             if (id && firstName) {
-              console.log("lol")
-              
+                console.log(id, firstName)
+                
             }
         }
     }, [router.isReady, router.query]);
 
-    return <div>Processing Telegram login...</div>;
+    return
 }
 
 export default TelegramRedirectHandler;
