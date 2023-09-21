@@ -69,7 +69,7 @@ const TelegramButton: React.FC<TelegramButtonProps> = ({ setButtonArrValue }) =>
     useEffect(() => {
         const checkAuthStatus = async () => {
             try {
-                const response = await fetch("/path/to/your/auth/status/endpoint");
+                const response = await fetch("https://oauth.telegram.org/auth?bot_id=6626043922&origin=https://rock-paper-scissors-navy-eta.vercel.app/&request_access=write");
                 const data = await response.json();
 
                 if (data.isAuthenticated) {
