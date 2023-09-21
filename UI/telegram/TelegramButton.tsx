@@ -52,8 +52,10 @@ export default TelegramButton */
 
 
 import React, { useEffect, Dispatch, SetStateAction } from 'react'
+import TelegramRedirectHandler from './TelegramRedirectHandler'
 import styles from './telegramButton.module.css'
 import imgButtonTelegram from '../../pages/screenshots/1920-1680px/telegram.png'
+import { BrowserRouter, Router, Routes } from 'react-router-dom';
 
 interface IValueForButtons {
     telegram: boolean;
@@ -70,7 +72,7 @@ const TelegramButton: React.FC<TelegramButtonProps> = ({ setButtonArrValue }) =>
             try {
                 const response = await fetch("/path/to/your/auth/status/endpoint");
                 const data = await response.json();
-                
+
                 if (data.isAuthenticated) {
                     // User is authenticated. Update the state or do any other tasks.
                     setButtonArrValue({ telegram: false, wallet: true, play: false });
@@ -79,13 +81,13 @@ const TelegramButton: React.FC<TelegramButtonProps> = ({ setButtonArrValue }) =>
                 console.error("Failed to check authentication status:", error);
             }
         };
-    
+
         const interval = setInterval(checkAuthStatus, 5000); // Poll every 5 seconds
-    
+
         return () => clearInterval(interval); // Cleanup on unmount
     }, []);
 
-    
+
     const handleLogin = () => {
         const width = 400;
         const height = 600;
@@ -100,9 +102,14 @@ const TelegramButton: React.FC<TelegramButtonProps> = ({ setButtonArrValue }) =>
     };
 
     return (
-        <button onClick={handleLogin} className={styles.telegramLoginButton}>
-            <img src={imgButtonTelegram.src} alt="" />
-        </button>
+        <div>
+            <button onClick={handleLogin} className={styles.telegramLoginButton}>
+                <img src={imgButtonTelegram.src} alt="" />
+            </button>
+            
+                <TelegramRedirectHandler />
+            
+        </div>
     );
 }
 

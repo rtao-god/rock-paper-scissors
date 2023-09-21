@@ -3,6 +3,7 @@ import type { NextPage } from 'next'
 import slackeyFontImg from "./screenshots/Title/Rock-paper-scissors.png"
 import Buttons from '../components/Buttons'
 import Head from "next/head"
+import { BrowserRouter } from "react-router-dom"
 
 interface IBooleanSteps {
   second: boolean;
@@ -20,29 +21,31 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="any" />
       </Head>
 
-      <div className="App">
-        <header className="App-header">
-          <img src={slackeyFontImg.src} className="SlackeyFontImg" alt="" />
-          <p> Сonnect your Telegram to start the game </p>
+      <BrowserRouter>
+        <div className="App">
+          <header className="App-header">
+            <img src={slackeyFontImg.src} className="SlackeyFontImg" alt="" />
+            <p> Сonnect your Telegram to start the game </p>
 
-          <div ref={circlesRef} className='steps'>
+            <div ref={circlesRef} className='steps'>
 
-            <div style={{ backgroundColor: "#ffbc48" }}></div>
+              <div style={{ backgroundColor: "#ffbc48" }}></div>
 
-            {booleanSteps.second
-              ? <div style={{ background: "#ffbc48" }}></div>
-              : <div style={{ background: "#a0592a" }}></div>
+              {booleanSteps.second
+                ? <div style={{ background: "#ffbc48" }}></div>
+                : <div style={{ background: "#a0592a" }}></div>
 
-            }
-            {booleanSteps.third
-              ? <div style={{ backgroundColor: "#ffbc48" }}></div>
-              : <div style={{ backgroundColor: "#a0592a" }}></div>
-            }
-          </div>
+              }
+              {booleanSteps.third
+                ? <div style={{ backgroundColor: "#ffbc48" }}></div>
+                : <div style={{ backgroundColor: "#a0592a" }}></div>
+              }
+            </div>
 
-          <Buttons setBooleanSteps={setBooleanSteps} />
-        </header>
-      </div>
+            <Buttons setBooleanSteps={setBooleanSteps} />
+          </header>
+        </div>
+      </BrowserRouter>
     </div>
   )
 }
