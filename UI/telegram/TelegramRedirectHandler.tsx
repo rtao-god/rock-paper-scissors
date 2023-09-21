@@ -5,17 +5,13 @@ function TelegramRedirectHandler() {
     const router = useRouter();
 
     useEffect(() => {
-        // Wait until router object is populated on client side
-        if (router.isReady) {
-            const { id, first_name: firstName } = router.query;
-            console.log(id, firstName, "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd", router.query, router.isReady, router )
-            if (id && firstName) {
-                console.log(id, firstName, "hggggggggggggggggggggggggfffffffffffffffffffffffffffffffffffffffffffffffffffffffffff")
-            }
+        const { id, first_name: firstName } = router.query;
+        if (id && firstName) {
+            console.log(`ID: ${id}, First Name: ${firstName}`);
         }
-    }, [router.isReady, router.query]);
+    }, [router.query]);
 
-    return <div> lol </div>
+    return <div></div>;
 }
 
 export default TelegramRedirectHandler;

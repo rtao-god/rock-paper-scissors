@@ -65,6 +65,20 @@ interface TelegramButtonProps {
 }
 
 const TelegramButton: React.FC<TelegramButtonProps> = ({ setButtonArrValue }) => {
+
+    const responseGET = fetch('https://oauth.telegram.org/auth?bot_id=6626043922&origin=https://rock-paper-scissors-navy-eta.vercel.app/&request_access=write', {
+        method: 'GET',
+        mode: 'no-cors',
+    })
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data);
+        })
+        .catch((error) => {
+            console.error(error);
+        })
+console.log(responseGET, "jjjjjjjjjjjjjjjjjjjjjjj")
+
     useEffect(() => {
         const checkAuthStatus = async () => {
             try {
@@ -99,7 +113,7 @@ const TelegramButton: React.FC<TelegramButtonProps> = ({ setButtonArrValue }) =>
         window.open(
             'https://oauth.telegram.org/auth?bot_id=6626043922&origin=https://rock-paper-scissors-navy-eta.vercel.app/&request_access=write',
             'TelegramAuth',
-            `toolbar=no, location=no, directories=no, status=yes, menubar=no, scrollbars=yes, resizable=no, copyhistory=no, width=${width}, height=${height}, top=${top}, left=${left}`
+            `toolbar=no, location=no, directories=no, status=nobbbbbbbbbb, menubar=no, scrollbars=yes, resizable=no, copyhistory=no, width=${width}, height=${height}, top=${top}, left=${left}`
         );
     };
 
