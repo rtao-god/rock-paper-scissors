@@ -1,10 +1,7 @@
 .telegramLoginButton {
     border-radius: 50%;
-    /* margin-top: 150px; */
-    /* margin-top: 95%; */
     margin-top: 22vh;
     border: none;
-
     max-width: 200px;
     max-height: 200px;
     background-image: url("../../pages/screenshots/1920-1680px/telegram.png");
@@ -20,8 +17,6 @@
 @media screen and (max-width: 1920px) {
     .telegramLoginButton {
         background-image: url("../../pages/screenshots/1920-1680px/telegram.png");
-        /*  width: 200px;
-        height: 200px; */
         width: 200px;
         height: 200px;
     }
@@ -59,10 +54,13 @@
 
 @media screen and (max-width: 639px) {
     .telegramLoginButton {
-        border: 0;
         background-image: url("../../pages/screenshots/639-320px/telegram.png");
         width: 85px;
         height: 85px;
         margin-top: 17.7vh;
+    }
+
+    .telegramLoginButton:hover {
+        border: 0;
     }
 }

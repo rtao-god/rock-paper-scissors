@@ -1,23 +1,22 @@
-/* import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useRouter } from 'next/router';
+import React, { useEffect } from 'react';
 
 function TelegramRedirectHandler() {
-    const location = useLocation();
+    const router = useRouter();
 
     useEffect(() => {
-        const queryParams = new URLSearchParams(location.search);
+        // Wait until router object is populated on client side
+        if (router.isReady) {
+            const { id, first_name: firstName } = router.query;
 
-        const id = queryParams.get('id');
-        const firstName = queryParams.get('first_name');
-        //... other parameters ...
-
-        if (id && firstName) {
-            // User has logged in via Telegram
-            // Store user data in state or context
+            if (id && firstName) {
+              console.log("lol")
+              
+            }
         }
-    }, [location]);
+    }, [router.isReady, router.query]);
 
     return <div>Processing Telegram login...</div>;
 }
 
-export default TelegramRedirectHandler */
+export default TelegramRedirectHandler;
