@@ -54,6 +54,7 @@ export default TelegramButton */
 import React, { useEffect, Dispatch, SetStateAction } from 'react'
 import TelegramRedirectHandler from './TelegramRedirectHandler'
 import styles from './telegramButton.module.css'
+import { useRouter } from 'next/router';
 
 interface IValueForButtons {
     telegram: boolean;
@@ -65,44 +66,6 @@ interface TelegramButtonProps {
 }
 
 const TelegramButton: React.FC<TelegramButtonProps> = ({ setButtonArrValue }) => {
-
-    const responseGET = fetch('https://oauth.telegram.org/auth?bot_id=6626043922&origin=https://rock-paper-scissors-navy-eta.vercel.app/&request_access=write', {
-        method: 'GET',
-        mode: 'no-cors',
-    })
-        .then((res) => res.json())
-        .then((data) => {
-            console.log(data);
-        })
-        .catch((error) => {
-            console.error(error);
-        })
-console.log(responseGET, "jjjjjjjjjjjjjjjjjjjjjjj")
-
-    useEffect(() => {
-        const checkAuthStatus = async () => {
-            try {
-                const response = await fetch("https://oauth.telegram.org/auth?bot_id=6626043922&origin=https://rock-paper-scissors-navy-eta.vercel.app/&request_access=write");
-                const data = await response.json();
-
-                if (data.isAuthenticated) {
-                    // User is authenticated. Update the state or do any other tasks.
-                    setButtonArrValue({ telegram: false, wallet: true, play: false });
-                    console.log(data.isAuthenticated)
-
-                }
-                console.log(response.status, data)
-
-            } catch (error) {
-                console.error("Failed to check authentication status:", error);
-            }
-        };
-
-        const interval = setInterval(checkAuthStatus, 5000); // Poll every 5 seconds
-
-        return () => clearInterval(interval); // Cleanup on unmount
-    }, []);
-
     const handleLogin = () => {
         // setButtonArrValue({ telegram: false, wallet: true, play: false });
         const width = 400;
@@ -111,7 +74,7 @@ console.log(responseGET, "jjjjjjjjjjjjjjjjjjjjjjj")
         const top = (window.innerHeight / 2) - (height / 2);
 
         window.open(
-            'https://oauth.telegram.org/auth?bot_id=6626043922&origin=https://rock-paper-scissors-navy-eta.vercel.app/&request_access=write',
+            `https://oauth.telegram.org/auth?bot_id=6626043922&origin=https://rock-paper-scissors-navy-eta.vercel.app/&request_access=write`,
             'TelegramAuth',
             `toolbar=no, location=no, directories=no, status=nobbbbbbbbbb, menubar=no, scrollbars=yes, resizable=no, copyhistory=no, width=${width}, height=${height}, top=${top}, left=${left}`
         );
@@ -122,7 +85,22 @@ console.log(responseGET, "jjjjjjjjjjjjjjjjjjjjjjj")
             <button onClick={handleLogin} className={styles.telegramLoginButton}>
             </button>
 
-            <TelegramRedirectHandler />
+            <div id="telegram_login"
+                data-size="large"
+                data-radius="10"
+                data-auth-url="https://rock-paper-scissors-navy-eta.vercel.app/"
+                data-request-access="write_post,read_post">lol</div>
+
+
+
+            {/* <TelegramRedirectHandler /> */}
+            <script async
+                src="https://telegram.org/js/telegram-widget.js?7"
+                data-telegram-login="RtaoTestTelegramBot"
+                data-size="large"
+                data-radius="10"
+                data-auth-url="https://rock-paper-scissors-navy-eta.vercel.app/"
+                data-request-access="write_post,read_post"></script>
 
         </div>
     );
