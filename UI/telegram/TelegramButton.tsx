@@ -52,7 +52,7 @@ export default TelegramButton */
 
 
 import React, { useEffect, Dispatch, SetStateAction } from 'react'
-import TelegramRedirectHandler from './TelegramRedirectHandler'
+// import TelegramRedirectHandler from './TelegramRedirectHandler'
 import styles from './telegramButton.module.css'
 import imgButtonTelegram from '../../pages/screenshots/1920-1680px/telegram.png'
 import { BrowserRouter, Router, Routes } from 'react-router-dom';
@@ -67,7 +67,7 @@ interface TelegramButtonProps {
 }
 
 const TelegramButton: React.FC<TelegramButtonProps> = ({ setButtonArrValue }) => {
-    useEffect(() => {
+/*     useEffect(() => {
         const checkAuthStatus = async () => {
             try {
                 const response = await fetch("/path/to/your/auth/status/endpoint");
@@ -86,7 +86,7 @@ const TelegramButton: React.FC<TelegramButtonProps> = ({ setButtonArrValue }) =>
 
         return () => clearInterval(interval); // Cleanup on unmount
     }, []);
-
+ */
 
     const handleLogin = () => {
         const width = 400;
@@ -104,10 +104,9 @@ const TelegramButton: React.FC<TelegramButtonProps> = ({ setButtonArrValue }) =>
     return (
         <div>
             <button onClick={handleLogin} className={styles.telegramLoginButton}>
-                <img src={imgButtonTelegram.src} alt="" />
             </button>
             
-                <TelegramRedirectHandler />
+                {/* <TelegramRedirectHandler /> */}
             
         </div>
     );

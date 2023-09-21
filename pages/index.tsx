@@ -21,7 +21,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="any" />
       </Head>
 
-      <BrowserRouter>
+      {/* <BrowserRouter> */}
         <div className="App">
           <header className="App-header">
             <img src={slackeyFontImg.src} className="SlackeyFontImg" alt="" />
@@ -45,7 +45,7 @@ const Home: NextPage = () => {
             <Buttons setBooleanSteps={setBooleanSteps} />
           </header>
         </div>
-      </BrowserRouter>
+      {/* </BrowserRouter> */}
     </div>
   )
 }
