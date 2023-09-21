@@ -1,5 +1,5 @@
-import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 function TelegramRedirectHandler() {
     const router = useRouter();
@@ -10,13 +10,12 @@ function TelegramRedirectHandler() {
             const { id, first_name: firstName } = router.query;
 
             if (id && firstName) {
-                console.log(id, firstName)
-                
+                console.log(id, firstName, "hgggggggggggggggggggggggg")
             }
         }
     }, [router.isReady, router.query]);
 
-    return
+    return <div> lol </div>
 }
 
 export default TelegramRedirectHandler;
