@@ -127,11 +127,10 @@
         background-image: url('../../pages/screenshots/639-320px/telegram.png');
         width: 85px;
         height: 85px;
-        margin-top: 17.7vh;
+        margin-top: 19.7vh;
     }
 
     .telegramLoginButton:hover {
         border: 0;
     }
 }
-
