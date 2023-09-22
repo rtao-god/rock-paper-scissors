@@ -4,7 +4,6 @@
     border: none;
     max-width: 200px;
     max-height: 200px;
-    background-image: url("../../pages/screenshots/1920-1680px/telegram.png");
     background-position: center;
     background-repeat: no-repeat;
     cursor: pointer;
@@ -26,8 +25,8 @@
 @media screen and (max-width: 1679px) {
     .telegramLoginButton {
         background-image: url("../../pages/screenshots/1679-1440px/telegram.png");
-        width: 165px;
-        height: 165px;
+        width: 140px;
+        height: 140px;
         margin-top: 21.9vh;
     }
 }
@@ -65,4 +64,74 @@
     }
 }
 
+
+
+
+
+
+
+
+.telegramLoginButton {
+    border-radius: 50%;
+    margin-top: 22vh;
+    margin-bottom: 20px;
+    border: none;
+    max-width: 200px;
+    max-height: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.telegramLoginButton:hover {
+    border: 2px solid #f9c03a;
+}
+
+@media screen and (max-width: 1920px) {
+    .telegramLoginButton {
+        background-image: url('../../pages/screenshots/1920-1680px/telegram.png');
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 1679px) {
+    .telegramLoginButton {
+        background-image: url('../../pages/screenshots/1679-1440px/telegram.png');
+        width: 165px;
+        height: 165px;
+        margin-top: 21.9vh;
+    }
+}
+
+@media screen and (max-width: 1439px) {
+    .telegramLoginButton {
+        background-image: url('../../pages/screenshots/1439-1180px/telegram.png');
+        width: 130px;
+        height: 130px;
+        margin-top: 17.9vh;
+    }
+}
+
+@media screen and (max-width: 1179px) {
+    .telegramLoginButton {
+        background-image: url('../../pages/screenshots/1179-640px/telegram.png');
+        width: 110px;
+        height: 110px;
+        margin-top: 23vh;
+    }
+}
+
+@media screen and (max-width: 639px) {
+    .telegramLoginButton {
+        background-image: url('../../pages/screenshots/639-320px/telegram.png');
+        width: 85px;
+        height: 85px;
+        margin-top: 17.7vh;
+    }
+
+    .telegramLoginButton:hover {
+        border: 0;
+    }
+}
 

@@ -25,18 +25,29 @@ code {
 .App-header {
   width: 100vw;
   height: 100vh;
-  background-size: cover;
   background-image: url("../pages/screenshots/1920-1680px/background.png");
+  background-size: cover;
+}
+
+@media screen and (max-width: 1920px) {
+  .App {
+    background-repeat: round;
+    background-image: url("../pages/screenshots/1920-1680px/background.png");
+  }
 }
 
 @media screen and (max-width: 1679px) {
   .App {
+    background-position: center;
+    background-size: cover;
+    background-repeat: round;
     background-image: url("../pages/screenshots/1679-1440px/background.png");
   }
 }
 
 @media screen and (max-width: 1179px) {
   .App-header {
+    background-repeat: no-repeat;
     background-position: top !important;
     background-image: url("../pages/screenshots/1179-640px/background.png");
   }
@@ -92,19 +103,4 @@ code {
   .App-header p {
     font-size: 15px;
   }
-}
-
-.playButton img:hover {
-  border: 2px solid #fadd98;
-  border-radius: 50%;
-}
-
-@media screen and (max-width: 639px) {
-  .playButton img:hover {
-    border: 0;
-  }
-}
-
-#telegram-login-RtaoTestTelegramBot {
-  cursor: pointer;
 }

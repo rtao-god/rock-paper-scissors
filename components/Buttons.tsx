@@ -2,6 +2,7 @@ import React, { useState, useEffect, Dispatch, SetStateAction } from 'react'
 import WalletButton from '../UI/wallet/WalletButton'
 import playButton from "../pages/screenshots/1920-1680px/play.png"
 import TelegramButton from '../UI/telegram/TelegramButton'
+import Play from '../UI/play/Play';
 
 interface IValueForButtons {
     telegram: boolean;
@@ -32,14 +33,14 @@ const Buttons: React.FC<ButtonsProps> = ({ setBooleanSteps }) => {
     return (
         <div>
             {buttonArrValue.telegram &&
-                <TelegramButton /* setButtonArrValue={setButtonArrValue} */ />
+                <TelegramButton setButtonArrValue={setButtonArrValue} />
             }
 
             {buttonArrValue.wallet &&
                 <WalletButton setButtonArrValue={setButtonArrValue} />
             }
             {buttonArrValue.play &&
-                <a onClick={() => setBooleanSteps({ second: true, third: true })} className="playButton" href="tg://resolve?domain=YetAnotherRoshamBot"> <img src={playButton.src} alt="" /> </a>
+              <Play setBooleanSteps={setBooleanSteps} />
             }
         </div>
     )
