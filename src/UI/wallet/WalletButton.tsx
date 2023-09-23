@@ -93,7 +93,7 @@ const WalletButton: React.FC<WalletButtonProps> = ({ setButtonArrValue }) => {
                 userSelect: 'none',
               },
             })}
-          >
+          > 
             {(() => {
               if (!connected) {
                 return (
